@@ -1,6 +1,6 @@
 subdir('qemu-api-macros')
 subdir('qemu-api')
-
+subdir('accel')
 subdir('hw')
 
 cargo = find_program('cargo', required: false)

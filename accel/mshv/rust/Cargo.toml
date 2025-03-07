@@ -1,0 +1,24 @@
+[package]
+name = "qemu-mshv"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mshv-bindings = { version = "0.3.3", features = ["fam-wrappers", "with-serde"]}
+mshv-ioctls = { version = "0.3.3" }
+vmm-sys-util = { version = "0.12.1", features = ["with-serde"]}
+hypervisor = { git = "https://github.com/msrssp/cloud-hypervisor.git", features = ["mshv"], rev = "807f286cd6a13b18c45cf4c2f82c037ae8031dd7" }
+arch = { git = "https://github.com/msrssp/cloud-hypervisor.git", rev = "807f286cd6a13b18c45cf4c2f82c037ae8031dd7" }
+anyhow = "1.0.81"
+iced-x86 = {version = "1.21.0", default-features = false, features = ["std", "decoder", "op_code_info", "instr_info", "fast_fmt"]}
+lazy_static = "1.5"
+
+[lib]
+crate-type = ["staticlib"]
+
+[build-dependencies]
+cbindgen = "0.27.0"
+cargo_metadata = "0.14"
+
+[package.metadata.build]
+output_dir = "./"

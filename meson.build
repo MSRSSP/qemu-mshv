@@ -877,10 +877,8 @@ endif
 
 mshv = not_found
 if get_option('mshv').allowed() and host_os == 'linux'
-  mshv = cc.find_library('mshv', required: get_option('mshv'))
-  if cc.has_header('qemu-mshv.h', required: get_option('mshv')) and mshv.found()
-    accelerators += 'CONFIG_MSHV'
-  endif
+  mshv = true
+  accelerators += 'CONFIG_MSHV'
 endif
 
 if get_option('whpx').allowed() and host_os == 'windows'
