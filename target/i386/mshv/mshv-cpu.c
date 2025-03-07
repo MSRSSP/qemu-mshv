@@ -1,6 +1,6 @@
 #include "qemu/osdep.h"
 #include "cpu.h"
-#include "sysemu/mshv.h"
+#include "system/mshv.h"
 
 static void set_seg(struct SegmentRegister *lhs, const SegmentCache *rhs)
 {
@@ -58,6 +58,8 @@ static int mshv_getput_regs(MshvState *mshv_state, CPUState *cpu, bool set)
     StandardRegisters regs;
     SpecialRegisters sregs;
     FloatingPointUnit fpu;
+    unsigned nr_dies;
+    unsigned nr_threads; 
     int ret = 0;
 
     if (!set) {
@@ -99,10 +101,12 @@ static int mshv_getput_regs(MshvState *mshv_state, CPUState *cpu, bool set)
         sregs.apic_base = cpu_get_apic_base(x86cpu->apic_state);
         memset(&sregs.interrupt_bitmap, 0, sizeof(sregs.interrupt_bitmap));
         memset(&fpu, 0, sizeof(fpu));
+        nr_dies = env->topo_info.dies_per_pkg;
+        nr_threads =  env->topo_info.threads_per_core;
         mshv_configure_vcpu(
             mshv_vcpufd(cpu), cpu->cpu_index,
             IS_AMD_CPU(env) ? AMD : (IS_INTEL_CPU(env) ? Intel : Unknown),
-            env->nr_dies, cpu->nr_cores / env->nr_dies, cpu->nr_threads, &regs,
+            nr_dies, env->topo_info.cores_per_module, nr_threads, &regs,
             &sregs, env->xcr0, &fpu);
     } else {
         cpu_set_apic_tpr(x86cpu->apic_state, sregs.cr8);

@@ -1,6 +1,6 @@
 #include "qemu/osdep.h"
 #include "hw/pci/msi.h"
-#include "sysemu/mshv.h"
+#include "system/mshv.h"
 
 int mshv_irqchip_add_msi_route(int vector, PCIDevice *dev)
 {

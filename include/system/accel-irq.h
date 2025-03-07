@@ -1,9 +1,19 @@
-#ifndef SYSEMU_ACCEL_H
-#define SYSEMU_ACCEL_H
+/*
+ * QEMU IRQ support
+ *
+ * Copyright Microsoft, Corp. 2017
+ *
+ *
+ * This work is licensed under the terms of the GNU GPL, version 2 or later.
+ * See the COPYING file in the top-level directory.
+ *
+ */
+#ifndef ACCEL_IRQ_H
+#define ACCEL_IRQ_H
 #include "hw/pci/msi.h"
 #include "qemu/osdep.h"
-#include "sysemu/kvm.h"
-#include "sysemu/mshv.h"
+#include "system/kvm.h"
+#include "system/mshv.h"
 
 static inline bool accel_msi_via_irqfd_enabled(void) {
   return mshv_msi_via_irqfd_enabled() || kvm_msi_via_irqfd_enabled();

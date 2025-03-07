@@ -42,7 +42,7 @@ typedef struct hyperv_message hv_message;
 #endif
 
 #ifdef CONFIG_MSHV_IS_POSSIBLE
-#include <qemu-mshv.h>
+#include "qemu-mshv.h"
 extern bool mshv_allowed;
 #define mshv_enabled() (mshv_allowed)
 

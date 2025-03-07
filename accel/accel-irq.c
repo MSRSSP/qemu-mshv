@@ -1,9 +1,9 @@
 #include "qemu/osdep.h"
 #include "hw/pci/msi.h"
 
-#include "sysemu/kvm.h"
-#include "sysemu/mshv.h"
-#include "sysemu/accel-irq.h"
+#include "system/kvm.h"
+#include "system/mshv.h"
+#include "system/accel-irq.h"
 
 int accel_irqchip_add_msi_route(KVMRouteChange *c, int vector, PCIDevice *dev)
 {

@@ -7,11 +7,11 @@
 #include "hw/i386/x86.h"
 #include "qemu/accel.h"
 #include "qemu/guest-random.h"
-#include "sysemu/cpus.h"
-#include "sysemu/runstate.h" //vm_stop
-#include "sysemu/accel-blocker.h"
-#include "sysemu/mshv.h"
-#include "sysemu/reset.h" //register reset
+#include "system/cpus.h"
+#include "system/runstate.h" //vm_stop
+#include "system/accel-blocker.h"
+#include "system/mshv.h"
+#include "system/reset.h" //register reset
 #include "trace.h"
 
 #define TYPE_MSHV_ACCEL ACCEL_CLASS_NAME("mshv")

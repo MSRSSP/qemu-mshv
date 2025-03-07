@@ -36,8 +36,8 @@
 #include "hw/i386/x86-iommu.h"
 #include "trace.h"
 
-#include "sysemu/mshv.h"
-#include "sysemu/accel-irq.h"
+#include "system/mshv.h"
+#include "system/accel-irq.h"
 
 #if defined(CONFIG_KVM) || defined(CONFIG_MSHV)
 #define ACCEL_GSI_IRQFD_POSSIBLE
