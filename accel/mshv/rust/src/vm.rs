@@ -5,7 +5,7 @@
  *
  * Authors: ziqiaozhou@microsoft.com
  *
- * This is a PoC code that need to be rewritten in C dropping dependencies.
+ * This is a PoC code that need to be rewritten in C, without lots of Rust dependencies.
  *
  * This work is licensed under the terms of the GNU GPL, version 2 or later.
  * See the COPYING file in the top-level directory.

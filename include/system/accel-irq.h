@@ -1,13 +1,16 @@
 /*
- * QEMU IRQ support
+ * QEMU accelerator IRQ interfaces
  *
  * Copyright Microsoft, Corp. 2017
  *
+ *
+ * This unified the IRQ interfaces for different accelerators (KVM and MSHV).
  *
  * This work is licensed under the terms of the GNU GPL, version 2 or later.
  * See the COPYING file in the top-level directory.
  *
  */
+ 
 #ifndef ACCEL_IRQ_H
 #define ACCEL_IRQ_H
 #include "hw/pci/msi.h"
