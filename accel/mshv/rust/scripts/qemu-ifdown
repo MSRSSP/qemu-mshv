@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo ip link set dev $1 down
+sudo ip tuntap del dev $1 mode tap
+sudo iptables -D FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -D FORWARD -i $1 -o eth0 -j ACCEPT
+sudo echo 0 > /proc/sys/net/ipv4/ip_forward

@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo ip tuntap add dev $1 mode tap
+sudo ip addr add 192.168.1.1/24 dev $1
+sudo ip link set dev $1 up
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i $1 -o eth0 -j ACCEPT
+sudo echo 1 > /proc/sys/net/ipv4/ip_forward
