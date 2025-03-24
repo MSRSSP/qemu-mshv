@@ -18,7 +18,7 @@ libmshv_rs = custom_target('libmshv',
 )
 
 mshv_generated_h = custom_target('rust_to_c_header',
-  command : ['cp', hdr_path, target_dir + '/qemu-mshv.h'],
+  command : ['cp', hdr_path, target_dir + '/../../../qemu-mshv.h'],
   output : 'qemu-mshv.h',
   depends : [build_mshv]
 )
