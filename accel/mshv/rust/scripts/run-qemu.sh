@@ -1,4 +1,4 @@
-QEMU=../qemu/build/qemu-system-x86_64
+QEMU=../../../../build/qemu-system-x86_64
 ## sudo is required for qemu-ifup.
 sudo ${QEMU} \
 	-kernel hypervisor-fw \

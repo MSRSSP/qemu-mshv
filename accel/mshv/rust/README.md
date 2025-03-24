@@ -25,5 +25,5 @@ Targets and accelerators
 
 ## Run qemu
 
-1. Download images: `scripts/download-image.sh`
-2. Run `scripts/run-qemu.sh`
+1. Download images: `sh scripts/download-image.sh`
+2. Run `sh scripts/run-qemu.sh`
