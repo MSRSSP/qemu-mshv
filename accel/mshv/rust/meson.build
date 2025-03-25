@@ -8,7 +8,7 @@ hdr_path = output_dir + '/qemu-mshv.h'
 build_mshv = custom_target('libmshv-build',
   command: ['cargo', 'build', '--release', '--target-dir', target_dir, '--manifest-path', cargo_config],
   output: 'release',  # This is the expected output from cargo
-  depend_files: ['src/lib.rs', 'build.rs'],  # Dependencies for rebuild (e.g., source files)
+  depend_files: ['src/lib.rs', 'src/cpu.rs', 'src/vm.rs', 'src/msi.rs', 'src/memory.rs', 'build.rs'],  # Dependencies for rebuild (e.g., source files)
 )
 
 libmshv_rs = custom_target('libmshv',
