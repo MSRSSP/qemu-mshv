@@ -94,6 +94,8 @@ static int mshv_getput_regs(MshvState *mshv_state, CPUState *cpu, bool set)
     mshv_getset_seg(&sregs.fs, &env->segs[R_FS], set);
     mshv_getset_seg(&sregs.gs, &env->segs[R_GS], set);
     mshv_getset_seg(&sregs.ss, &env->segs[R_SS], set);
+    mshv_getset_seg(&sregs.tr, &env->tr, set);
+    mshv_getset_seg(&sregs.ldt, &env->ldt, set);
 
     sregs.idt.limit = env->idt.limit;
     sregs.idt.base = env->idt.base;
